@@ -57,7 +57,7 @@ export class AddItemCommandHandler implements ICommandHandler {
   }
 
   private async getItem(command: AddItemCommand) {
-    const itemDtos = await this.itemService.getItems();
+    const itemDtos = await this.itemService.getAll();
     const itemDto = await itemDtos.find((it) => it.id === command.itemId);
 
     if (!itemDto) {

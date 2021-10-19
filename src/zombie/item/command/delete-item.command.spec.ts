@@ -7,7 +7,7 @@ import { createZombie } from '../../zombie-testing.util';
 import { DeleteItemCommandHandler } from './delete-item.command';
 import { NotFoundException } from '@nestjs/common';
 
-describe('AddItemCommand', () => {
+describe('DeleteItemCommand', () => {
   let handler: DeleteItemCommandHandler;
   let zombieRepository: ZombieRepository;
   let itemRepository: ItemRepository;
