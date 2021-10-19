@@ -13,6 +13,7 @@ import { HttpModule } from '@nestjs/axios';
 import { ItemService } from './item/item.service';
 import { AddItemCommandHandler } from './item/command/add-item.command';
 import { ItemRepository } from './item/item.repository';
+import { DeleteItemCommandHandler } from './item/command/delete-item.command';
 
 @Module({
   imports: [
@@ -29,6 +30,7 @@ import { ItemRepository } from './item/item.repository';
     GetZombieQueryHandler,
     ItemService,
     AddItemCommandHandler,
+    DeleteItemCommandHandler,
   ],
 })
 export class ZombieModule {}
