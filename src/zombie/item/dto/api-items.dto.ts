@@ -1,6 +1,6 @@
 import { ApiItemDto } from './api-item.dto';
 
-export class ApiItemsDto {
+export interface ApiItemsDto {
   timestamp: number;
   items: ApiItemDto[];
 }

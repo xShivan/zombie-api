@@ -1,6 +1,6 @@
 import { ExchangeRateDto } from './exchange-rate.dto';
 
-export class ExchangeRatesDto {
+export interface ExchangeRatesDto {
   table: string;
   no: string;
   effectiveDate: string;
