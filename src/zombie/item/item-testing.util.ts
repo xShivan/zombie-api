@@ -5,12 +5,12 @@ export const mockApiItems: ApiItemDto[] = [
   {
     id: faker.datatype.number(),
     name: faker.lorem.word(),
-    price: faker.commerce.price(),
+    price: faker.datatype.number(),
   },
   {
     id: faker.datatype.number(),
     name: faker.lorem.word(),
-    price: faker.commerce.price(),
+    price: faker.datatype.number(),
   },
 ];
 
