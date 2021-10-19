@@ -1,6 +1,7 @@
 import {
   Body,
   Controller,
+  Delete,
   Get,
   Param,
   ParseIntPipe,
@@ -17,6 +18,7 @@ import { ZombieDetailsDto } from './dto/zombie-details.dto';
 import { GetZombieQuery } from './query/get-zombie.query';
 import { UpdateZombieCommand } from './command/update-zombie.command';
 import { ZombieUpdateDto } from './dto/zombie-update.dto';
+import { DeleteZombieCommand } from './command/delete-zombie.command';
 
 @Controller('zombie')
 export class ZombieController {
@@ -43,5 +45,10 @@ export class ZombieController {
     @Body() dto: ZombieUpdateDto,
   ): Promise<void> {
     return this.commandBus.execute(new UpdateZombieCommand(id, dto));
+  }
+
+  @Delete(':id')
+  delete(@Param('id', ParseIntPipe) id: number): Promise<void> {
+    return this.commandBus.execute(new DeleteZombieCommand(id));
   }
 }

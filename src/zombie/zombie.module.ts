@@ -7,6 +7,7 @@ import { CreateZombieCommandHandler } from './command/create-zombie.command';
 import { GetZombiesQueryHandler } from './query/get-zombies.query';
 import { GetZombieQueryHandler } from './query/get-zombie.query';
 import { UpdateZombieCommandHandler } from './command/update-zombie.command';
+import { DeleteZombieCommandHandler } from './command/delete-zombie.command';
 
 @Module({
   imports: [TypeOrmModule.forFeature([ZombieRepository]), CqrsModule],
@@ -14,6 +15,7 @@ import { UpdateZombieCommandHandler } from './command/update-zombie.command';
   providers: [
     CreateZombieCommandHandler,
     UpdateZombieCommandHandler,
+    DeleteZombieCommandHandler,
     GetZombiesQueryHandler,
     GetZombieQueryHandler,
   ],
