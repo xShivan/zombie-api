@@ -65,7 +65,7 @@ export class GetItemsQueryHandler
     });
 
     const prices = resultItems.map((resultItem) => resultItem.price);
-    const total = prices.reduce((acc, price) => acc + price);
+    const total = prices.reduce((acc, price) => acc + price, 0);
 
     return {
       items: resultItems,
