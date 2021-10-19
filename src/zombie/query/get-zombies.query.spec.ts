@@ -4,7 +4,7 @@ import { createTestingModule } from '../../shared/util/testing.util';
 import { GetZombiesQueryHandler } from './get-zombies.query';
 import { createZombie } from '../zombie-testing.util';
 
-describe('CreateZombieCommand', () => {
+describe('GetZombiesQuery', () => {
   let handler: GetZombiesQueryHandler;
   let zombieRepository: ZombieRepository;
   let module: TestingModule;
