@@ -5,29 +5,10 @@ import { createTestingModule } from '../../../shared/util/testing.util';
 import * as faker from 'faker';
 import { BadRequestException, NotFoundException } from '@nestjs/common';
 import { ItemService } from '../item.service';
-import { ApiItemDto } from '../dto/api-item.dto';
 import { createZombie } from '../../zombie-testing.util';
 import { MAX_ZOMBIE_ITEMS, ZombieEntity } from '../../zombie.entity';
 import { ItemRepository } from '../item.repository';
-
-const mockApiItems: ApiItemDto[] = [
-  {
-    id: faker.datatype.number(),
-    name: faker.lorem.word(),
-    price: faker.commerce.price(),
-  },
-  {
-    id: faker.datatype.number(),
-    name: faker.lorem.word(),
-    price: faker.commerce.price(),
-  },
-];
-
-class ItemServiceMock {
-  getItems(): Promise<ApiItemDto[]> {
-    return Promise.resolve(mockApiItems);
-  }
-}
+import { ItemServiceMock, mockApiItems } from '../item-testing.util';
 
 describe('AddItemCommand', () => {
   let handler: AddItemCommandHandler;

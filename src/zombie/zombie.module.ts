@@ -14,6 +14,8 @@ import { ItemService } from './item/item.service';
 import { AddItemCommandHandler } from './item/command/add-item.command';
 import { ItemRepository } from './item/item.repository';
 import { DeleteItemCommandHandler } from './item/command/delete-item.command';
+import { ExchangeRateService } from '../shared/exchange-rate.service';
+import { GetItemsQueryHandler } from './item/query/get-items.query';
 
 @Module({
   imports: [
@@ -31,6 +33,8 @@ import { DeleteItemCommandHandler } from './item/command/delete-item.command';
     ItemService,
     AddItemCommandHandler,
     DeleteItemCommandHandler,
+    ExchangeRateService,
+    GetItemsQueryHandler,
   ],
 })
 export class ZombieModule {}

@@ -1,11 +1,27 @@
-import { Controller, Delete, Param, ParseIntPipe, Post } from '@nestjs/common';
-import { CommandBus } from '@nestjs/cqrs';
+import {
+  Controller,
+  Delete,
+  Get,
+  Param,
+  ParseIntPipe,
+  Post,
+} from '@nestjs/common';
+import { CommandBus, QueryBus } from '@nestjs/cqrs';
 import { AddItemCommand } from './command/add-item.command';
 import { DeleteItemCommand } from './command/delete-item.command';
+import { ZombieItemsDto } from './dto/zombie-item.dto';
+import { GetItemsQuery } from './query/get-items.query';
 
 @Controller('zombie/:zombieId/item')
 export class ItemController {
-  constructor(private commandBus: CommandBus) {}
+  constructor(private commandBus: CommandBus, private queryBus: QueryBus) {}
+
+  @Get()
+  getAll(
+    @Param('zombieId', ParseIntPipe) zombieId: number,
+  ): Promise<ZombieItemsDto> {
+    return this.queryBus.execute(new GetItemsQuery(zombieId));
+  }
 
   @Post(':id')
   add(
