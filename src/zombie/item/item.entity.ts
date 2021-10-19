@@ -4,7 +4,7 @@ import { ZombieEntity } from '../zombie.entity';
 @Entity('Item')
 export class ItemEntity {
   @PrimaryGeneratedColumn()
-  public id: number;
+  id: number;
 
   @ManyToOne(() => ZombieEntity, (zombie) => zombie.items)
   zombie: ZombieEntity;

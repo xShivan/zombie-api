@@ -12,14 +12,14 @@ export const MAX_ZOMBIE_ITEMS = 5;
 @Entity('zombie')
 export class ZombieEntity {
   @PrimaryGeneratedColumn()
-  public id: number;
+  id: number;
 
   @Column()
-  public name: string;
+  name: string;
 
   @CreateDateColumn()
-  public createdAt: Date;
+  createdAt: Date;
 
   @OneToMany(() => ItemEntity, (item) => item.zombie)
-  public items: ItemEntity[];
+  items: ItemEntity[];
 }
